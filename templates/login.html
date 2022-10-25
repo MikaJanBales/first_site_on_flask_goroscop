@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash {{ cat }}">{{ msg }}</div>
+    {% endfor %}
+    <h1>Авторизация</h1>
+    <form action="" method="post" class="form-control">
+    <p><label>Email: </label><input type="text" name="email" />
+    <p><label>Пароль: </label><input type="password" name="psw" />
+    <p><input type="checkbox" name="remainme" /> Запомнить меня
+    <p><input type="submit" value="Войти">
+    <hr align=left width="300px">
+    <p><a href="{{ url_for('register') }}">Регистрация</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>Ваш профиль</h1>
+    <hr>
+    <p><a href="/logout">Выйти из профиля</a>
+    <p>user info: {{ current_user.get_id() }}
+{% endblock %}
