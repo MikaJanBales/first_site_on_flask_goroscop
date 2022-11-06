@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from UserLogin import UserLogin
 from goro import gor
-from first_site_on_flask_goroscop.project.forms import SignForm
+from project.forms import SignForm
 
 
 
@@ -63,9 +63,11 @@ def close_db(error):
     if hasattr(g, 'link_db'):
         g.link_db.close()
 
+
 @app.route('/', methods=['POST', 'GET'])
 def index():
     return render_template('index.html', menu=dbase.getMenu(), posts=dbase.getPostsAnonce(), title='Главная')
+
 
 @app.route('/add_post', methods=['POST', 'GET'])
 @login_required
